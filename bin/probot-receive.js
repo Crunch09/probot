@@ -42,7 +42,5 @@ const probot = createProbot({
 probot.setup(program.args)
 
 probot.logger.debug('Receiving event', program.event)
-probot.receive({ name: program.event, payload, id: uuid.v4() }).catch(() => {
-  // Process must exist non-zero to indicate that the action failed to run
-  process.exit(1)
-})
+console.warn("Running without catch")
+probot.receive({ name: program.event, payload, id: uuid.v4() })
